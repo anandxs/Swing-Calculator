@@ -12,6 +12,8 @@ public class Calculator implements ActionListener {
 	JLabel displayLabel;
 	JButton clearBtn, delBtn, divBtn, prodBtn, diffBtn, sumBtn, equalBtn, dotBtn;
 	JButton zeroBtn, oneBtn, twoBtn, threeBtn, fourBtn, fiveBtn, sixBtn, sevenBtn, eightBtn, nineBtn;
+	float first, second;
+	String operatorChosen;
 	
 	public Calculator() {
 		jf = new JFrame("Calculator");
@@ -107,7 +109,6 @@ public class Calculator implements ActionListener {
 		sumBtn.addActionListener(this);
 		jf.add(sumBtn);
 		
-		
 		// row 5
 		dotBtn = new JButton(".");
 		dotBtn.setBounds(20, 510, 50, 50);
@@ -131,62 +132,155 @@ public class Calculator implements ActionListener {
 	public static void main(String args[]) {
 		new Calculator();
 	}
-
-	/**
-	 *
-	 */
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == oneBtn) {
+			
 			displayLabel.setText(displayLabel.getText() + "1");
+			
 		} else if (e.getSource() == twoBtn) {
+			
 			displayLabel.setText(displayLabel.getText() + "2");
+			
 		} else if (e.getSource() == threeBtn) {
+			
 			displayLabel.setText(displayLabel.getText() + "3");
+			
 		} else if (e.getSource() == fourBtn) {
+			
 			displayLabel.setText(displayLabel.getText() + "4");
+			
 		} else if (e.getSource() == fiveBtn) {
+			
 			displayLabel.setText(displayLabel.getText() + "5");
+			
 		} else if (e.getSource() == sixBtn) {
+			
 			displayLabel.setText(displayLabel.getText() + "6");
+			
 		} else if (e.getSource() == sevenBtn) {
+			
 			displayLabel.setText(displayLabel.getText() + "7");
+			
 		} else if (e.getSource() == eightBtn) {
+			
 			displayLabel.setText(displayLabel.getText() + "8");
+			
 		} else if (e.getSource() == nineBtn) {
+			
 			displayLabel.setText(displayLabel.getText() + "9");
+			
 		} else if (e.getSource() == zeroBtn) {
+			
 			displayLabel.setText(displayLabel.getText() + "0");
+			
 		} else if (e.getSource() == clearBtn) {
+			
 			displayLabel.setText("");
+			first = second = 0.0f;
+			   
 		} else if (e.getSource() == delBtn) {
+			
 			String current = displayLabel.getText();
 			
 			if (current.length() > 0) {
+				
 				String latest = current.substring(0, current.length() - 1);
-				displayLabel.setText(latest);				
+				displayLabel.setText(latest);
+				
 			} else {
+				
 				System.out.println("displayLabel is empty");
+				
 			}
 		} else if (e.getSource() == dotBtn) {
+			
 			String current = displayLabel.getText();
+			
 			if (current == "") {
+				
 				displayLabel.setText("0.");
+				
 			} else if (current.contains(".")) {
-				System.out.println("Already has a dot");
+				
+				System.out.println("Invalid action. Already has a dot!");
+				
 			} else {
+				
 				displayLabel.setText(current + ".");
+				
 			}
 		} else if (e.getSource() == equalBtn) {
 			
+			String currentText = displayLabel.getText();
+			
+			if (currentText != "" ) {
+				
+				second = Float.parseFloat(currentText);
+				
+				switch (operatorChosen) {
+				case "sum": 
+					displayLabel.setText(first + second + "");						
+					break;
+				case "diff":
+					displayLabel.setText(first - second + "");
+					break;
+				case "prod":
+					displayLabel.setText(first * second + "");
+					break;
+				case "div":
+					if (second == 0.0f) {
+						displayLabel.setText("cannot divide by zero");
+					} else {
+						displayLabel.setText(first / second + "");					}
+				}
+				
+			}
 		} else if (e.getSource() == sumBtn) {
 			
+			String currentText = displayLabel.getText();
+			
+			if (first == 0.0f && currentText != "") {
+				
+				first = Float.parseFloat(currentText);
+				displayLabel.setText("");
+				operatorChosen = "sum";
+				
+			}
 		} else if (e.getSource() == diffBtn) {
 			
+			String currentText = displayLabel.getText();
+			
+			if (first == 0.0f && currentText != "") {
+				
+				first = Float.parseFloat(currentText);
+				displayLabel.setText("");
+				operatorChosen = "diff";
+				
+			}
 		} else if (e.getSource() == prodBtn) {
 			
+			String currentText = displayLabel.getText();
+						
+			if (first == 0.0f && currentText != "") {
+				
+				first = Float.parseFloat(currentText);
+				displayLabel.setText("");
+				operatorChosen = "prod";
+				
+			}
 		} else if (e.getSource() == divBtn) {
 			
+			String currentText = displayLabel.getText();
+			
+			if (first == 0.0f && currentText != "") {
+				
+				first = Float.parseFloat(currentText);
+				displayLabel.setText("");
+				operatorChosen = "div";
+				
+			}
 		}
 	}
 }
