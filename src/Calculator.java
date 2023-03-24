@@ -21,13 +21,14 @@ public class Calculator implements ActionListener {
 		jf.setLocation(300, 150);
 		
 		displayLabel = new JLabel();
-		displayLabel.setBounds(20, 40, 350, 50);
+		displayLabel.setBounds(20, 40, 345, 50);
 		displayLabel.setBackground(Color.gray);
 		displayLabel.setForeground(Color.white);
 		displayLabel.setOpaque(true);
 		displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		jf.add(displayLabel);
 		
+		// row 1
 		clearBtn = new JButton("CLR");
 		clearBtn.setBounds(20, 110, 140, 50);
 		clearBtn.addActionListener(this);
@@ -40,20 +41,10 @@ public class Calculator implements ActionListener {
 		
 		divBtn = new JButton("/");
 		divBtn.setBounds(300, 110, 50, 50);
+		divBtn.addActionListener(this);
 		jf.add(divBtn);
 		
-		prodBtn = new JButton("*");
-		prodBtn.setBounds(300, 210, 50, 50);
-		jf.add(prodBtn);
-		
-		diffBtn = new JButton("-");
-		diffBtn.setBounds(300, 310, 50, 50);
-		jf.add(diffBtn);
-		
-		sumBtn = new JButton("+");
-		sumBtn.setBounds(300, 410, 50, 50);
-		jf.add(sumBtn);
-		
+		// row 2
 		sevenBtn = new JButton("7");
 		sevenBtn.setBounds(20, 210, 50, 50);
 		sevenBtn.addActionListener(this);
@@ -69,6 +60,12 @@ public class Calculator implements ActionListener {
 		nineBtn.addActionListener(this);
 		jf.add(nineBtn);
 		
+		prodBtn = new JButton("*");
+		prodBtn.setBounds(300, 210, 50, 50);
+		prodBtn.addActionListener(this);
+		jf.add(prodBtn);
+		
+		// row 3
 		fourBtn = new JButton("4");
 		fourBtn.setBounds(20, 310, 50, 50);
 		fourBtn.addActionListener(this);
@@ -84,6 +81,12 @@ public class Calculator implements ActionListener {
 		sixBtn.addActionListener(this);
 		jf.add(sixBtn);
 		
+		diffBtn = new JButton("-");
+		diffBtn.setBounds(300, 310, 50, 50);
+		diffBtn.addActionListener(this);
+		jf.add(diffBtn);
+		
+		// row 4
 		oneBtn = new JButton("1");
 		oneBtn.setBounds(20, 410, 50, 50);
 		oneBtn.addActionListener(this);
@@ -99,8 +102,16 @@ public class Calculator implements ActionListener {
 		threeBtn.addActionListener(this);
 		jf.add(threeBtn);
 		
+		sumBtn = new JButton("+");
+		sumBtn.setBounds(300, 410, 50, 50);
+		sumBtn.addActionListener(this);
+		jf.add(sumBtn);
+		
+		
+		// row 5
 		dotBtn = new JButton(".");
 		dotBtn.setBounds(20, 510, 50, 50);
+		dotBtn.addActionListener(this);
 		jf.add(dotBtn);
 		
 		zeroBtn = new JButton("0");
@@ -110,6 +121,7 @@ public class Calculator implements ActionListener {
 		
 		equalBtn = new JButton("=");
 		equalBtn.setBounds(220, 510, 150, 50);
+		equalBtn.addActionListener(this);
 		jf.add(equalBtn);
 		
 		jf.setVisible(true);
@@ -120,6 +132,9 @@ public class Calculator implements ActionListener {
 		new Calculator();
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == oneBtn) {
@@ -153,6 +168,25 @@ public class Calculator implements ActionListener {
 			} else {
 				System.out.println("displayLabel is empty");
 			}
+		} else if (e.getSource() == dotBtn) {
+			String current = displayLabel.getText();
+			if (current == "") {
+				displayLabel.setText("0.");
+			} else if (current.contains(".")) {
+				System.out.println("Already has a dot");
+			} else {
+				displayLabel.setText(current + ".");
+			}
+		} else if (e.getSource() == equalBtn) {
+			
+		} else if (e.getSource() == sumBtn) {
+			
+		} else if (e.getSource() == diffBtn) {
+			
+		} else if (e.getSource() == prodBtn) {
+			
+		} else if (e.getSource() == divBtn) {
+			
 		}
 	}
 }
