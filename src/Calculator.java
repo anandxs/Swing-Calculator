@@ -20,7 +20,7 @@ public class Calculator implements ActionListener {
 		jf.setResizable(false);
 		jf.setLocation(300, 150);
 		
-		displayLabel = new JLabel("ENTER NUMBER");
+		displayLabel = new JLabel();
 		displayLabel.setBounds(20, 40, 350, 50);
 		displayLabel.setBackground(Color.gray);
 		displayLabel.setForeground(Color.white);
@@ -30,10 +30,12 @@ public class Calculator implements ActionListener {
 		
 		clearBtn = new JButton("CLR");
 		clearBtn.setBounds(20, 110, 140, 50);
+		clearBtn.addActionListener(this);
 		jf.add(clearBtn);
 		
 		delBtn = new JButton("Del");
 		delBtn.setBounds(220, 110, 60, 50);
+		delBtn.addActionListener(this);
 		jf.add(delBtn);
 		
 		divBtn = new JButton("/");
@@ -121,25 +123,36 @@ public class Calculator implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == oneBtn) {
-			displayLabel.setText("1");
+			displayLabel.setText(displayLabel.getText() + "1");
 		} else if (e.getSource() == twoBtn) {
-			displayLabel.setText("2");
+			displayLabel.setText(displayLabel.getText() + "2");
 		} else if (e.getSource() == threeBtn) {
-			displayLabel.setText("3");
+			displayLabel.setText(displayLabel.getText() + "3");
 		} else if (e.getSource() == fourBtn) {
-			displayLabel.setText("4");
+			displayLabel.setText(displayLabel.getText() + "4");
 		} else if (e.getSource() == fiveBtn) {
-			displayLabel.setText("5");
+			displayLabel.setText(displayLabel.getText() + "5");
 		} else if (e.getSource() == sixBtn) {
-			displayLabel.setText("6");
+			displayLabel.setText(displayLabel.getText() + "6");
 		} else if (e.getSource() == sevenBtn) {
-			displayLabel.setText("7");
+			displayLabel.setText(displayLabel.getText() + "7");
 		} else if (e.getSource() == eightBtn) {
-			displayLabel.setText("8");
+			displayLabel.setText(displayLabel.getText() + "8");
 		} else if (e.getSource() == nineBtn) {
-			displayLabel.setText("9");
+			displayLabel.setText(displayLabel.getText() + "9");
 		} else if (e.getSource() == zeroBtn) {
-			displayLabel.setText("0");
+			displayLabel.setText(displayLabel.getText() + "0");
+		} else if (e.getSource() == clearBtn) {
+			displayLabel.setText("");
+		} else if (e.getSource() == delBtn) {
+			String current = displayLabel.getText();
+			
+			if (current.length() > 0) {
+				String latest = current.substring(0, current.length() - 1);
+				displayLabel.setText(latest);				
+			} else {
+				System.out.println("displayLabel is empty");
+			}
 		}
 	}
 }
