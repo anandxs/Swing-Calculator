@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -21,13 +22,15 @@ public class Calculator implements ActionListener {
 		jf.setSize(330, 520);
 		jf.setResizable(false);
 		jf.setLocation(300, 150);
+		jf.getContentPane().setBackground(Color.BLACK);
 		
 		displayLabel = new JLabel();
 		displayLabel.setBounds(20, 40, 275, 50);
-		displayLabel.setBackground(Color.gray);
+		displayLabel.setBackground(Color.BLUE);
 		displayLabel.setForeground(Color.white);
 		displayLabel.setOpaque(true);
 		displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		displayLabel.setFont(new Font("Dialog", Font.PLAIN, 20));
 		jf.add(displayLabel);
 		
 		// row 1
