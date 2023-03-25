@@ -18,12 +18,12 @@ public class Calculator implements ActionListener {
 	public Calculator() {
 		jf = new JFrame("Calculator");
 		jf.setLayout(null);
-		jf.setSize(400, 650);
+		jf.setSize(330, 520);
 		jf.setResizable(false);
 		jf.setLocation(300, 150);
 		
 		displayLabel = new JLabel();
-		displayLabel.setBounds(20, 40, 345, 50);
+		displayLabel.setBounds(20, 40, 275, 50);
 		displayLabel.setBackground(Color.gray);
 		displayLabel.setForeground(Color.white);
 		displayLabel.setOpaque(true);
@@ -32,96 +32,96 @@ public class Calculator implements ActionListener {
 		
 		// row 1
 		clearBtn = new JButton("CLR");
-		clearBtn.setBounds(20, 110, 140, 50);
+		clearBtn.setBounds(20, 110, 125, 50);
 		clearBtn.addActionListener(this);
 		jf.add(clearBtn);
 		
 		delBtn = new JButton("Del");
-		delBtn.setBounds(220, 110, 60, 50);
+		delBtn.setBounds(170, 110, 50, 50);
 		delBtn.addActionListener(this);
 		jf.add(delBtn);
 		
 		divBtn = new JButton("/");
-		divBtn.setBounds(300, 110, 50, 50);
+		divBtn.setBounds(245, 110, 50, 50);
 		divBtn.addActionListener(this);
 		jf.add(divBtn);
 		
 		// row 2
 		sevenBtn = new JButton("7");
-		sevenBtn.setBounds(20, 210, 50, 50);
+		sevenBtn.setBounds(20, 185, 50, 50);
 		sevenBtn.addActionListener(this);
 		jf.add(sevenBtn);
 		
 		eightBtn = new JButton("8");
-		eightBtn.setBounds(120, 210, 50, 50);
+		eightBtn.setBounds(95, 185, 50, 50);
 		eightBtn.addActionListener(this);
 		jf.add(eightBtn);
 		
 		nineBtn = new JButton("9");
-		nineBtn.setBounds(220, 210, 50, 50);
+		nineBtn.setBounds(170, 185, 50, 50);
 		nineBtn.addActionListener(this);
 		jf.add(nineBtn);
 		
 		prodBtn = new JButton("*");
-		prodBtn.setBounds(300, 210, 50, 50);
+		prodBtn.setBounds(245, 185, 50, 50);
 		prodBtn.addActionListener(this);
 		jf.add(prodBtn);
 		
 		// row 3
 		fourBtn = new JButton("4");
-		fourBtn.setBounds(20, 310, 50, 50);
+		fourBtn.setBounds(20, 260, 50, 50);
 		fourBtn.addActionListener(this);
 		jf.add(fourBtn);
 		
 		fiveBtn = new JButton("5");
-		fiveBtn.setBounds(120, 310, 50, 50);
+		fiveBtn.setBounds(95, 260, 50, 50);
 		fiveBtn.addActionListener(this);
 		jf.add(fiveBtn);
 		
 		sixBtn = new JButton("6");
-		sixBtn.setBounds(220, 310, 50, 50);
+		sixBtn.setBounds(170, 260, 50, 50);
 		sixBtn.addActionListener(this);
 		jf.add(sixBtn);
 		
 		diffBtn = new JButton("-");
-		diffBtn.setBounds(300, 310, 50, 50);
+		diffBtn.setBounds(245, 260, 50, 50);
 		diffBtn.addActionListener(this);
 		jf.add(diffBtn);
 		
 		// row 4
 		oneBtn = new JButton("1");
-		oneBtn.setBounds(20, 410, 50, 50);
+		oneBtn.setBounds(20, 335, 50, 50);
 		oneBtn.addActionListener(this);
 		jf.add(oneBtn);
 		
 		twoBtn = new JButton("2");
-		twoBtn.setBounds(120, 410, 50, 50);
+		twoBtn.setBounds(95, 335, 50, 50);
 		twoBtn.addActionListener(this);
 		jf.add(twoBtn);
 		
 		threeBtn = new JButton("3");
-		threeBtn.setBounds(220, 410, 50, 50);
+		threeBtn.setBounds(170, 335, 50, 50);
 		threeBtn.addActionListener(this);
 		jf.add(threeBtn);
 		
 		sumBtn = new JButton("+");
-		sumBtn.setBounds(300, 410, 50, 50);
+		sumBtn.setBounds(245, 335, 50, 50);
 		sumBtn.addActionListener(this);
 		jf.add(sumBtn);
 		
 		// row 5
 		dotBtn = new JButton(".");
-		dotBtn.setBounds(20, 510, 50, 50);
+		dotBtn.setBounds(20, 410, 50, 50);
 		dotBtn.addActionListener(this);
 		jf.add(dotBtn);
 		
 		zeroBtn = new JButton("0");
-		zeroBtn.setBounds(120, 510, 50, 50);
+		zeroBtn.setBounds(95, 410, 50, 50);
 		zeroBtn.addActionListener(this);
 		jf.add(zeroBtn);
 		
 		equalBtn = new JButton("=");
-		equalBtn.setBounds(220, 510, 150, 50);
+		equalBtn.setBounds(170, 410, 125, 50);
 		equalBtn.addActionListener(this);
 		jf.add(equalBtn);
 		
