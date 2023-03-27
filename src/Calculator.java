@@ -260,7 +260,8 @@ public class Calculator implements ActionListener {
 				
 				switch (operatorChosen) {
 				case "sum": 
-					displayLabel.setText(first + second + "");						
+					displayLabel.setText(first + second + "");		
+					first += second;
 					break;
 				case "diff":
 					displayLabel.setText(first - second + "");
@@ -279,6 +280,7 @@ public class Calculator implements ActionListener {
 		} else if (e.getSource() == sumBtn) {
 			
 			String currentText = displayLabel.getText();
+			displayLabel.setText("");
 			
 			if (first == 0.0f && currentText != "") {
 				
