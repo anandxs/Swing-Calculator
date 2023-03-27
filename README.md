@@ -8,5 +8,5 @@ This is a basic calculator application written in Java using the Swing framework
 
 - Improve the UI design by changing the background colors and font colors.
 - Refactor the code for better readability and maintainability.
-- Fix any bugs when foumd.
+- Fix any bugs when found.
 
