@@ -269,6 +269,7 @@ public class Calculator implements ActionListener {
 					break;
 				case "prod":
 					displayLabel.setText(first * second + "");
+					first *= second;
 					break;
 				case "div":
 					if (second == 0.0f) {
@@ -305,7 +306,8 @@ public class Calculator implements ActionListener {
 		} else if (e.getSource() == prodBtn) {
 			
 			String currentText = displayLabel.getText();
-						
+			displayLabel.setText("");
+			
 			if (first == 0.0f && currentText != "") {
 				
 				first = Float.parseFloat(currentText);
