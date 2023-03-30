@@ -265,6 +265,7 @@ public class Calculator implements ActionListener {
 					break;
 				case "diff":
 					displayLabel.setText(first - second + "");
+					first -= second;
 					break;
 				case "prod":
 					displayLabel.setText(first * second + "");
@@ -287,11 +288,12 @@ public class Calculator implements ActionListener {
 				first = Float.parseFloat(currentText);
 				displayLabel.setText("");
 				operatorChosen = "sum";
-				
+
 			}
 		} else if (e.getSource() == diffBtn) {
 			
 			String currentText = displayLabel.getText();
+			displayLabel.setText("");
 			
 			if (first == 0.0f && currentText != "") {
 				
