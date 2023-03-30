@@ -275,7 +275,9 @@ public class Calculator implements ActionListener {
 					if (second == 0.0f) {
 						displayLabel.setText("cannot divide by zero");
 					} else {
-						displayLabel.setText(first / second + "");					}
+						displayLabel.setText(first / second + "");	
+						first /= second;
+					}
 				}
 				
 			}
@@ -318,6 +320,7 @@ public class Calculator implements ActionListener {
 		} else if (e.getSource() == divBtn) {
 			
 			String currentText = displayLabel.getText();
+			displayLabel.setText("");
 			
 			if (first == 0.0f && currentText != "") {
 				
