@@ -15,6 +15,7 @@ public class Calculator implements ActionListener {
 	JButton zeroBtn, oneBtn, twoBtn, threeBtn, fourBtn, fiveBtn, sixBtn, sevenBtn, eightBtn, nineBtn;
 	float first, second;
 	String operatorChosen;
+	boolean postEqual = false;
 	
 	public Calculator() {
 		jf = new JFrame("Calculator");
@@ -257,11 +258,11 @@ public class Calculator implements ActionListener {
 			if (currentText != "" ) {
 				
 				second = Float.parseFloat(currentText);
-				
+				System.out.println(second);
 				switch (operatorChosen) {
 				case "sum": 
 					displayLabel.setText(first + second + "");		
-					first += second;
+//					first += second;
 					break;
 				case "diff":
 					displayLabel.setText(first - second + "");
@@ -281,17 +282,27 @@ public class Calculator implements ActionListener {
 				}
 				
 			}
+			
+			postEqual = true;
+			System.out.println(first + " " + second);
 		} else if (e.getSource() == sumBtn) {
 			
 			String currentText = displayLabel.getText();
 			displayLabel.setText("");
 			operatorChosen = "sum";
 			
-			if (first == 0.0f && currentText != "") {
+			if (!postEqual && currentText != "") {
 				
-				first = Float.parseFloat(currentText);
+				first += Float.parseFloat(currentText);
+				System.out.println(first);
 				displayLabel.setText("");
 
+			}
+			
+			if (postEqual) {
+				first = Float.parseFloat(currentText);
+				System.out.println(first);
+				postEqual = false;
 			}
 		} else if (e.getSource() == diffBtn) {
 			
