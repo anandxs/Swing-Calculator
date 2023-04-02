@@ -285,48 +285,48 @@ public class Calculator implements ActionListener {
 			
 			String currentText = displayLabel.getText();
 			displayLabel.setText("");
+			operatorChosen = "sum";
 			
 			if (first == 0.0f && currentText != "") {
 				
 				first = Float.parseFloat(currentText);
 				displayLabel.setText("");
-				operatorChosen = "sum";
 
 			}
 		} else if (e.getSource() == diffBtn) {
 			
 			String currentText = displayLabel.getText();
 			displayLabel.setText("");
+			operatorChosen = "diff";
 			
 			if (first == 0.0f && currentText != "") {
 				
 				first = Float.parseFloat(currentText);
 				displayLabel.setText("");
-				operatorChosen = "diff";
 				
 			}
 		} else if (e.getSource() == prodBtn) {
 			
 			String currentText = displayLabel.getText();
 			displayLabel.setText("");
+			operatorChosen = "prod";
 			
 			if (first == 0.0f && currentText != "") {
 				
 				first = Float.parseFloat(currentText);
 				displayLabel.setText("");
-				operatorChosen = "prod";
 				
 			}
 		} else if (e.getSource() == divBtn) {
 			
 			String currentText = displayLabel.getText();
 			displayLabel.setText("");
+			operatorChosen = "div";
 			
 			if (first == 0.0f && currentText != "") {
 				
 				first = Float.parseFloat(currentText);
 				displayLabel.setText("");
-				operatorChosen = "div";
 				
 			}
 		}
