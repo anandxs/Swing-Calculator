@@ -220,6 +220,7 @@ public class Calculator implements ActionListener {
 			
 			displayLabel.setText("");
 			first = second = 0.0f;
+			isStart = true;
 			   
 		} else if (e.getSource() == delBtn) {
 			
@@ -266,7 +267,6 @@ public class Calculator implements ActionListener {
 					break;
 				case "diff":
 					displayLabel.setText(first - second + "");
-//					first -= second;
 					break;
 				case "prod":
 					displayLabel.setText(first * second + "");
@@ -292,6 +292,7 @@ public class Calculator implements ActionListener {
 			String currentText = displayLabel.getText();
 			displayLabel.setText("");
 			operatorChosen = "sum";
+			isStart = false;
 			
 			if (!postEqual && currentText != "") {
 				
