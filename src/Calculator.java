@@ -16,6 +16,7 @@ public class Calculator implements ActionListener {
 	float first, second;
 	String operatorChosen;
 	boolean postEqual = false;
+	boolean isStart = true;
 	
 	public Calculator() {
 		jf = new JFrame("Calculator");
@@ -258,15 +259,14 @@ public class Calculator implements ActionListener {
 			if (currentText != "" ) {
 				
 				second = Float.parseFloat(currentText);
-				System.out.println(second);
+				System.out.println("Current second: " + second);
 				switch (operatorChosen) {
 				case "sum": 
-					displayLabel.setText(first + second + "");		
-//					first += second;
+					displayLabel.setText(first + second + "");	
 					break;
 				case "diff":
 					displayLabel.setText(first - second + "");
-					first -= second;
+//					first -= second;
 					break;
 				case "prod":
 					displayLabel.setText(first * second + "");
@@ -284,7 +284,9 @@ public class Calculator implements ActionListener {
 			}
 			
 			postEqual = true;
-			System.out.println(first + " " + second);
+			isStart = true;
+			System.out.println("Equals End...");
+			System.out.println("first: " + first + " second: " + second);
 		} else if (e.getSource() == sumBtn) {
 			
 			String currentText = displayLabel.getText();
@@ -295,7 +297,6 @@ public class Calculator implements ActionListener {
 				
 				first += Float.parseFloat(currentText);
 				System.out.println(first);
-				displayLabel.setText("");
 
 			}
 			
@@ -310,12 +311,21 @@ public class Calculator implements ActionListener {
 			displayLabel.setText("");
 			operatorChosen = "diff";
 			
-			if (first == 0.0f && currentText != "") {
+			if (!isStart && currentText != "") {
 				
-				first = Float.parseFloat(currentText);
-				displayLabel.setText("");
+				first -= Float.parseFloat(currentText);
+				System.out.println("Current first: " + first);
 				
 			}
+			
+			if (isStart && currentText != "") {
+				
+				first = Float.parseFloat(currentText);
+				isStart = false;
+				System.out.println("Current first: " + first);
+				
+			} 
+			
 		} else if (e.getSource() == prodBtn) {
 			
 			String currentText = displayLabel.getText();
